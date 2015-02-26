@@ -16,7 +16,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    BOOL myBool = [self performSelector:@selector(canBecomeFirstResponder)]; // armv7 Architecture detects this warning
+                                                                             // Non-armv7 Architecture crashes here at runtime (compilation succeeds)
+    myBool = YES;
+    
+//    int myInt = [self performSelector:@selector(canBecomeFirstResponder)]; // armv7 AND non-armv7 architecture detects this warning
+//    
+//    myInt = 0;
+    
     return YES;
 }
 
